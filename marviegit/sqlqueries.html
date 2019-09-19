@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1671">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px 'Helvetica Neue'; color: #000000; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px 'Helvetica Neue'; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 12.0px 0.0px; line-height: 14.0px; font: 12.0px 'Helvetica Neue'; color: #000000; -webkit-text-stroke: #000000}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">Assignment on sql queries</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1">#Q1</span></p>
+<p class="p3"><span class="s1">SELECT customers.customerName, concat(employees.firstName, ' ', employees.lastName) as 'Account Representative'</span></p>
+<p class="p3"><span class="s1"> FROM customers LEFT JOIN employees</span></p>
+<p class="p3"><span class="s1"> ON customers.salesRepEmployeeNumber = employees.employeeNumber;</span></p>
+<p class="p3"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">#Q2</span></p>
+<p class="p3"><span class="s1">SELECT sum(payments.amount)</span></p>
+<p class="p3"><span class="s1">FROM payments</span></p>
+<p class="p3"><span class="s1">LEFT JOIN customers</span></p>
+<p class="p3"><span class="s1">ON payments.customerNumber = customers.customerNumber</span></p>
+<p class="p3"><span class="s1">WHERE customers.customerName = 'Atelier graphique'</span></p>
+<p class="p3"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">#Q3</span></p>
+<p class="p3"><span class="s1">SELECT sum(payments.amount) as 'Total Payments'</span></p>
+<p class="p3"><span class="s1">FROM payments LEFT JOIN customers</span></p>
+<p class="p3"><span class="s1">ON payments.customerNumber = customers.customerNumber</span></p>
+<p class="p3"><span class="s1">GROUP BY payments.paymentDate</span></p>
+<p class="p3"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">#Q4</span></p>
+<p class="p3"><span class="s1">SELECT distinct products.productName, orders.status</span></p>
+<p class="p3"><span class="s1">FROM products</span></p>
+<p class="p3"><span class="s1">LEFT JOIN orderdetails</span></p>
+<p class="p3"><span class="s1">ON products.productCode = orderdetails.productCode</span></p>
+<p class="p3"><span class="s1">LEFT JOIN orders</span></p>
+<p class="p3"><span class="s1">ON orderdetails.orderNumber = orders.orderNumber </span></p>
+<p class="p3"><span class="s1">WHERE orders.status in ('On Hold', 'Cancelled')</span></p>
+<p class="p3"><span class="s1">GROUP BY orders.status, orderdetails.productCode</span></p>
+<p class="p3"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">#Q5</span></p>
+<p class="p3"><span class="s1">SELECT payments.amount as 'Amount Paid', customers.customerName </span></p>
+<p class="p3"><span class="s1">FROM payments</span></p>
+<p class="p3"><span class="s1">LEFT JOIN customers</span></p>
+<p class="p3"><span class="s1">ON payments.customerNumber = customers.customerNumber</span></p>
+<p class="p3"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">#Q6</span></p>
+<p class="p3"><span class="s1">SELECT COUNT(orders.orderNumber), customers.customerName</span></p>
+<p class="p3"><span class="s1">FROM orders</span></p>
+<p class="p3"><span class="s1">LEFT JOIN customers</span></p>
+<p class="p3"><span class="s1">ON orders.customerNumber = customers.CustomerNumber</span></p>
+<p class="p3"><span class="s1">WHERE customerName = 'Herkku Gifts'</span></p>
+<p class="p3"><span class="s1">GROUP BY orders.customerNumber </span></p>
+<p class="p3"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">#Q7</span></p>
+<p class="p3"><span class="s1">SELECT concat(employees.firstName, ' ', lastName) as 'Employees in Boston'</span></p>
+<p class="p3"><span class="s1">FROM employees</span></p>
+<p class="p3"><span class="s1">LEFT JOIN offices</span></p>
+<p class="p3"><span class="s1">ON employees.officeCode = offices.officeCode</span></p>
+<p class="p3"><span class="s1">WHERE offices.city = 'Boston' </span></p>
+<p class="p3"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">#Q8</span></p>
+<p class="p3"><span class="s1">SELECT payments.amount, customers.customerName </span></p>
+<p class="p3"><span class="s1">FROM payments</span></p>
+<p class="p3"><span class="s1">LEFT JOIN customers</span></p>
+<p class="p3"><span class="s1">ON payments.customerNumber = customers.customerNumber</span></p>
+<p class="p3"><span class="s1">WHERE payments.amount &gt; 100000</span></p>
+<p class="p3"><span class="s1">ORDER BY payments.amount DESC</span></p>
+<p class="p3"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">#Q9</span></p>
+<p class="p3"><span class="s1">SELECT count(*)</span></p>
+<p class="p3"><span class="s1">FROM orders</span></p>
+<p class="p3"><span class="s1">WHERE status = 'On Hold'</span></p>
+<p class="p3"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">#Q10</span></p>
+<p class="p3"><span class="s1">SELECT customers.customerName, count(*)</span></p>
+<p class="p3"><span class="s1">FROM orders</span></p>
+<p class="p3"><span class="s1">LEFT JOIN customers</span></p>
+<p class="p3"><span class="s1">ON orders.customerNumber = customers.customerNumber</span></p>
+<p class="p3"><span class="s1">WHERE status = 'On Hold'</span></p>
+<p class="p3"><span class="s1">GROUP BY orders.customerNumber</span></p>
+<p class="p3"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">#Q11</span></p>
+<p class="p3"><span class="s1">SELECT products.productName, orders.orderDate</span></p>
+<p class="p3"><span class="s1">FROM products</span></p>
+<p class="p3"><span class="s1">LEFT JOIN orderdetails</span></p>
+<p class="p3"><span class="s1">ON products.productCode = orderdetails.productCode</span></p>
+<p class="p3"><span class="s1">LEFT JOIN orders</span></p>
+<p class="p3"><span class="s1">ON orderdetails.orderNumber = orders.orderNumber</span></p>
+<p class="p3"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">#Q12</span></p>
+<p class="p3"><span class="s1">SELECT orders.orderDate as  'Order Dates for 1940 Ford Pickup Truck'</span></p>
+<p class="p3"><span class="s1">FROM orders</span></p>
+<p class="p3"><span class="s1">LEFT JOIN orderdetails</span></p>
+<p class="p3"><span class="s1">ON orders.orderNumber = orderdetails.orderNumber</span></p>
+<p class="p3"><span class="s1">LEFT JOIN products</span></p>
+<p class="p3"><span class="s1">ON orderdetails.productCode = products.productCode</span></p>
+<p class="p3"><span class="s1">WHERE products.productName = '1940 Ford Pickup Truck'</span></p>
+<p class="p3"><span class="s1">ORDER BY orders.orderDate DESC</span></p>
+<p class="p3"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">#Q13</span></p>
+<p class="p3"><span class="s1">SELECT t1.orderNumber, t2.customerName, t3.amount</span></p>
+<p class="p3"><span class="s1">FROM orders t1</span></p>
+<p class="p3"><span class="s1">LEFT JOIN customers t2</span></p>
+<p class="p3"><span class="s1">ON t1.customerNumber = t2.customerNumber</span></p>
+<p class="p3"><span class="s1">LEFT JOIN payments t3 </span></p>
+<p class="p3"><span class="s1">ON t2.customerNumber = t3.customerNumber</span></p>
+<p class="p3"><span class="s1">WHERE t3.amount &gt; 25000</span></p>
+<p class="p3"><span class="s1">ORDER BY t3.amount</span></p>
+<p class="p3"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">#Q14 *</span></p>
+<p class="p3"><span class="s1">SELECT orderdetails.productCode, count(distinct orders.orderNumber) </span></p>
+<p class="p3"><span class="s1">from orders</span></p>
+<p class="p3"><span class="s1">LEFT JOIN orderdetails</span></p>
+<p class="p3"><span class="s1">ON orders.orderNumber = orderdetails.orderNumber</span></p>
+<p class="p3"><span class="s1">GROUP BY orderdetails.productCode</span></p>
+<p class="p3"><span class="s1">ORDER BY count(distinct orders.orderNumber) DESC</span></p>
+<p class="p3"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">#Q15 </span></p>
+<p class="p3"><span class="s1">SELECT * </span></p>
+<p class="p3"><span class="s1">FROM products</span></p>
+<p class="p3"><span class="s1">LEFT JOIN orderdetails</span></p>
+<p class="p3"><span class="s1">ON products.productCode = orderdetails.productCode</span></p>
+<p class="p3"><span class="s1">WHERE (select orderdetails.priceEach &lt; (products.MSRP * 0.8))</span></p>
+<p class="p3"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">#Q16</span></p>
+<p class="p3"><span class="s1">SELECT products.productCode, orderdetails.priceEach, products.buyPrice</span></p>
+<p class="p3"><span class="s1">FROM products</span></p>
+<p class="p3"><span class="s1">LEFT JOIN orderdetails</span></p>
+<p class="p3"><span class="s1">ON products.productCode = orderdetails.productCode</span></p>
+<p class="p3"><span class="s1">WHERE orderdetails.priceEach &gt;= (products.buyPrice * 2)</span></p>
+<p class="p3"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">#Q17</span></p>
+<p class="p3"><span class="s1">SELECT *</span></p>
+<p class="p3"><span class="s1">FROM products</span></p>
+<p class="p3"><span class="s1">LEFT JOIN orderdetails</span></p>
+<p class="p3"><span class="s1">ON products.productCode = orderdetails.productCode</span></p>
+<p class="p3"><span class="s1">LEFT JOIN orders</span></p>
+<p class="p3"><span class="s1">ON orderdetails.orderNumber = orders.orderNumber</span></p>
+<p class="p3"><span class="s1">WHERE DAYNAME(orders.orderDate) = 'Monday'</span></p>
+<p class="p3"><span class="s1"><br>
+</span></p>
+<p class="p3"><span class="s1">#Q18</span></p>
+<p class="p3"><span class="s1">SELECT count(orderdetails.productCode) 'Quantity on hand for products listed on \'On Hold\' orders'</span></p>
+<p class="p3"><span class="s1">FROM orders</span></p>
+<p class="p3"><span class="s1">LEFT JOIN orderdetails</span></p>
+<p class="p3"><span class="s1">ON orders.orderNumber = orderdetails.orderNumber</span></p>
+<p class="p3"><span class="s1">WHERE orders.status = 'On Hold'</span></p>
+<p class="p3"><span class="s1">GROUP BY orders.status</span></p>
+</body>
+</html>
