@@ -1,0 +1,15 @@
+﻿Timestamp	Filename	Error	Message
+2019-09-30 09:20:10.081 +0000	assignment.fmp12	0	Import operations started
+2019-09-30 09:20:10.082 +0000	assignment.fmp12	0	Import of tables from file “Table 1.xls” started
+2019-09-30 09:20:10.083 +0000	Table 1	0	fields imported : 3
+2019-09-30 09:20:10.084 +0000	assignment.fmp12	0	tables imported : 1
+2019-09-30 09:20:10.084 +0000	assignment.fmp12	0	Import completed
+2019-09-30 09:20:10.085 +0000	assignment.fmp12	0	Import operations committed
+2019-09-30 09:20:10.085 +0000	assignment.fmp12	0	==================================================================
+2019-09-30 09:21:19.681 +0000	assignment.fmp12	0	Import operations started
+2019-09-30 09:21:19.682 +0000	assignment.fmp12	0	Import of tables from file “Table 2.xlsx” started
+2019-09-30 09:21:19.683 +0000	Table 2	0	fields imported : 3
+2019-09-30 09:21:19.684 +0000	assignment.fmp12	0	tables imported : 1
+2019-09-30 09:21:19.684 +0000	assignment.fmp12	0	Import completed
+2019-09-30 09:21:19.685 +0000	assignment.fmp12	0	Import operations committed
+2019-09-30 09:21:19.689 +0000	assignment.fmp12	0	==================================================================
